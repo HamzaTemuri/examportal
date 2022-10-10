@@ -45,7 +45,7 @@ public class UserController {
     }
 
     @PostMapping("/{username}")
-    public void updateUserByUserName(@PathVariable("username") String userName, @RequestBody User user) throws Exception {
-        this.userService.updateUserByUserName(userName,user);
+    public User updateUserByUserName(@PathVariable("username") String userName, @RequestBody User user) throws Exception {
+        return this.userService.updateUserByUserName(userName,user);
     }
 }

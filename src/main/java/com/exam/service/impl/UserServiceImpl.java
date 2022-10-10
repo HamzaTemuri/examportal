@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByUserName(String userName) throws Exception {
+    public User getUserByUserName(String userName) {
         return this.userRepository.findByUserName(userName);
     }
 
@@ -57,6 +57,7 @@ public class UserServiceImpl implements UserService {
             System.out.println("user does not exist !!");
             throw new Exception("user does not exist !!");
         } else {
+            user.setUserId(localUser.getUserId());
             localUser = this.userRepository.save(user);
         }
 
